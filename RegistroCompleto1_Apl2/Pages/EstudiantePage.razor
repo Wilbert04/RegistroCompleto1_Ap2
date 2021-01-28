@@ -1,13 +1,14 @@
-﻿@page "/estudiantes"
-@page "/estudiantes/{Id:int}"
+﻿@page "/EstudiantePage"
+@page "/EstudiantePage/{Id:int}"
 
-@using RegistroCompleto1_Apl2.BLL
 @using RegistroCompleto1_Apl2.Models
+@using RegistroCompleto1_Apl2.BLL
 
 @inject IToastService Toast
 
 <EditForm Model="estudiantes" OnValidSubmit="Guardar">
     <DataAnnotationsValidator />
+
     <div class="card">
         <div class="card-heard">
             <h4>Registro de Estudiantes</h4>
@@ -31,7 +32,7 @@
                 @*Nombre*@
                 <div class="form-group">
                     <label>Nombre:</label>
-                    <InputText @bind-Value="estudiantes." class="form-control col-5" />
+                    <InputText @bind-Value="estudiantes.Nombre" class="form-control col-5" />
                     <ValidationMessage For="@(() => estudiantes.Nombre)" />
                 </div>
 
@@ -52,7 +53,7 @@
                 @*Direccion*@
                 <div class="form-group">
                     <label>Direccion:</label>
-                    <InputText @bind-Value="" class="form-control col-5" />
+                    <InputText @bind-Value=" class=" form-control col-5" />
                     <ValidationMessage For="@(() => estudiantes.Direccion)" />
                 </div>
 
@@ -60,7 +61,7 @@
                 <div class="form-group">
                     <label>Fecha:</label>
                     <InputDate @bind-Value="estudiantes.Fecha" class="form-control col-5" />
-                    <ValidationMessage For="@(() => estudiantes.Fecha)" />
+                    <ValidationMessage For="@(() =>estudiantes.Fecha)" />
                 </div>
 
 
@@ -89,7 +90,7 @@
     {
         Nuevo();
         Buscar();
-    }
+    } 
 
     public void Nuevo()
     {
@@ -98,13 +99,13 @@
 
     private void Buscar()
     {
-
-        if (estudiantes.Id > 0)
+       
+        if(estudiantes.Id>0)
         {
             var encontrado = EstudiantesBLL.Buscar(estudiantes.Id);
 
-            if (encontrado != null)
-                this.estudiantes = encontrado;
+            if(encontrado != null)
+                this.estudiantes= encontrado;
             else
                 Toast.ShowWarning("No encontrado");
         }
@@ -116,7 +117,7 @@
 
         guardo = EstudiantesBLL.Guardar(estudiantes);
 
-        if (guardo)
+        if(guardo)
         {
             Toast.ShowSuccess("Guardado Correctamente");
             Nuevo();
@@ -129,9 +130,9 @@
     {
         bool elimino;
 
-        elimino = EstudiantesBLL.Eliminar(estudiantes.Id);
+        elimino= EstudiantesBLL.Eliminar(estudiantes.Id);
 
-        if (elimino)
+        if(elimino)
         {
             Nuevo();
             Toast.ShowSuccess("Eliminado Correctamente");
@@ -140,5 +141,9 @@
         else
             Toast.ShowError("No fue posible eliminar");
     }
+
+    
+
+
 
 }
