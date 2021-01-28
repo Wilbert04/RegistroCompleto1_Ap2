@@ -1,9 +1,6 @@
 ﻿@page "/EstudiantePage"
 @page "/EstudiantePage/{Id:int}"
 
-@using RegistroCompleto1_Apl2.Models
-@using RegistroCompleto1_Apl2.BLL
-
 @inject IToastService Toast
 
 <EditForm Model="estudiantes" OnValidSubmit="Guardar">

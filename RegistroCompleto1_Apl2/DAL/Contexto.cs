@@ -18,6 +18,6 @@ namespace RegistroCompleto1_Apl2.DAL
         
         }
 
-
+  
     }
 }
