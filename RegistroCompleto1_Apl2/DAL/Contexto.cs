@@ -16,6 +16,12 @@ namespace RegistroCompleto1_Apl2.DAL
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite(@"Data Source= RegistroDB.db");
+
+        }
+
+        public Contexto(DbContextOptions<Contexto> options) : base(options)
+        {
+
         }
 
 
