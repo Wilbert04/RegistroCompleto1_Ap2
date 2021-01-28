@@ -13,12 +13,6 @@ namespace RegistroCompleto1_Apl2.DAL
 
         public DbSet<Estudiantes> Estudiantes { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite(@"Data Source= RegistroDB.db");
-
-        }
-
         public Contexto(DbContextOptions<Contexto> options) : base(options)
         {
 
