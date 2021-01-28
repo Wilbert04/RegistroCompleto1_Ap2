@@ -15,7 +15,7 @@ namespace RegistroCompleto1_Apl2.DAL
 
         public Contexto(DbContextOptions<Contexto> options) : base(options)
         {
-
+        
         }
 
 
