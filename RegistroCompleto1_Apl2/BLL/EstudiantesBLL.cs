@@ -11,6 +11,14 @@ namespace RegistroCompleto1_Apl2.BLL
     public class EstudiantesBLL
     {
 
+       
+        private Contexto _dbContext;
+
+            public EstudiantesBLL(Contexto _dbContext)
+            {​​​​
+                this._dbContext = _dbContext;
+            }​​​​
+
         public static bool Guardar(Estudiantes estudiantes)
         {
             if (!Existe(estudiantes.Id))
@@ -46,7 +54,7 @@ namespace RegistroCompleto1_Apl2.BLL
         private static bool Modificar(Estudiantes estudiantes)
         {
             bool paso = false;
-            Contexto db =new Contexto();
+            Contexto db = new Contexto();
 
             try
             {
